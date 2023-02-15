@@ -1,0 +1,33 @@
+####### ----------Project2--------------------
+
+# required libraries
+
+library(tidyverse)
+library(tidymodels)
+library(car)
+library(parsnip)
+library(dplyr)
+library(pROC)
+library(ROCit)
+
+options(scipen=999)
+
+# reading the datas
+
+store_train<- read.csv(r"{D:\Data\Edvancer\Data_Project2\store_train.csv}",sep = ",")
+
+head(store_train)
+glimpse(store_train)
+
+store_test<- read.csv(r"{D:\Data\Edvancer\Data_Project2\store_test.csv}",sep = ",")
+dim(store_test)
+
+# checking the target bw train and test
+
+setdiff(names(store_train),names(store_test))
+
+## Event Rate
+
+prop.table(table(store_train$store))
+
+table(store_train$store_Type)
